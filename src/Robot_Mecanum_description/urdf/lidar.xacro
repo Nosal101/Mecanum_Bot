@@ -28,7 +28,15 @@
         <child link="Lidar_1"/>
     </joint>
 
-    <gazebo reference="Lidar_1">
+    <link name = "Lidar"></link>
+
+    <joint name="Lidar_joint" type="fixed">
+        <origin xyz="0 0 0.02" rpy="0 0 0"/>
+        <parent link="Lidar_1"/>
+        <child link="Lidar"/>
+    </joint>
+
+    <gazebo reference="Lidar">
       <sensor name="laser" type="ray">
           <pose> 0 0 0 0 0 0 </pose>
           <visualize>true</visualize>
