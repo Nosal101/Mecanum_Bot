@@ -275,27 +275,6 @@
   </collision>
 </link>
 
-<link name="JetsonNano_1">
-  <inertial>
-    <origin xyz="0.04569099999999997 1.744770795704311e-07 -0.007500491924311237" rpy="0 0 0"/>
-    <mass value="1.884"/>
-    <inertia ixx="0.001146" iyy="0.001711" izz="0.002575" ixy="0.0" iyz="0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="0.066382 -0.000802 -0.081321" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find Robot_Mecanum_description)/meshes/JetsonNano_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="gray"/>
-  </visual>
-  <collision>
-    <origin xyz="0.066382 -0.000802 -0.081321" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find Robot_Mecanum_description)/meshes/JetsonNano_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
 <link name="Kolo2_1">
   <inertial>
     <origin xyz="4.0221259182959823e-07 -0.01576125497762243 5.551115123125783e-17" rpy="0 0 0"/>
@@ -480,12 +459,6 @@
   <origin xyz="-0.155296 -0.040802 0.033821" rpy="0 0 0"/>
   <parent link="Stelarz_1"/>
   <child link="Pokrywa_1"/>
-</joint>
-
-<joint name="Sztywne 33" type="fixed">
-  <origin xyz="0.019309 0.040802 0.0255" rpy="0 0 0"/>
-  <parent link="Pokrywa_1"/>
-  <child link="JetsonNano_1"/>
 </joint>
 
 <joint name="Obrot 35" type="continuous">

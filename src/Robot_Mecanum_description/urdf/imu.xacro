@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<robot name="Robot_Mecanum" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <link name="JetsonNano_1">
+        <inertial>
+          <origin xyz="0.04569099999999997 1.744770795704311e-07 -0.007500491924311237" rpy="0 0 0"/>
+          <mass value="1.884"/>
+          <inertia ixx="0.001146" iyy="0.001711" izz="0.002575" ixy="0.0" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+          <origin xyz="0.066382 -0.000802 -0.081321" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="file://$(find Robot_Mecanum_description)/meshes/JetsonNano_1.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="gray"/>
+        </visual>
+        <collision>
+          <origin xyz="0.066382 -0.000802 -0.081321" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="file://$(find Robot_Mecanum_description)/meshes/JetsonNano_1.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+        </collision>
+      </link>
+
+      <joint name="Sztywne 33" type="fixed">
+        <origin xyz="0.019309 0.040802 0.0255" rpy="0 0 0"/>
+        <parent link="Pokrywa_1"/>
+        <child link="JetsonNano_1"/>
+      </joint>
+
+      <gazebo reference="JetsonNano_1">
+        <material>Gazebo/Red</material>
+        <sensor name="my_imu" type="imu">
+            <always_on>true</always_on>
+            <update_rate>100</update_rate>
+            <plugin name="imu_link" filename="libgazebo_ros_imu_sensor.so">
+                <ros>
+                  <remapping>~/out:=imu</remapping>
+                </ros>
+              </plugin>
+          </sensor>
+      </gazebo>
+
+</robot>
