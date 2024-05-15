@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<robot name="Robot_Mecanum" xmlns:xacro="http://www.ros.org/wiki/xacro">
+       
+    <link name="Kamera_1">
+        <inertial>
+        <origin xyz="0.03974558141104175 1.8866818979508537e-10 -0.03694270009998575" rpy="0 0 0"/>
+        <mass value="0.37160158054579484"/>
+        <inertia ixx="0.000155" iyy="4.3e-05" izz="0.000151" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+        </inertial>
+        <visual>
+        <origin xyz="-0.040566 -0.001 -0.110575" rpy="0 0 0"/>
+        <geometry>
+            <mesh filename="file://$(find Robot_Mecanum_description)/meshes/Kamera_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="black"/>
+        </visual>
+        <collision>
+        <origin xyz="-0.040566 -0.001 -0.110575" rpy="0 0 0"/>
+        <geometry>
+            <mesh filename="file://$(find Robot_Mecanum_description)/meshes/Kamera_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        </collision>
+    </link>
+
+    <joint name="Sztywne 34" type="fixed">
+        <origin xyz="-0.029039 0.000198 0.088575" rpy="0 0 0"/>
+        <parent link="Stelarz_1"/>
+        <child link="Kamera_1"/>
+    </joint>
+
+</robot>

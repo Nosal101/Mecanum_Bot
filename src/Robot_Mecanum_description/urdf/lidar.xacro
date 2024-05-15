@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<robot name="Robot_Mecanum" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <link name="Lidar_1">
+        <inertial>
+          <origin xyz="-2.623805824665884e-07 1.744770797698159e-07 0.014098154541206387" rpy="0 0 0"/>
+          <mass value="0.3197607939186152"/>
+          <inertia ixx="6e-05" iyy="6e-05" izz="7.2e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+          <origin xyz="0.002812 -0.000802 -0.096168" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="file://$(find Robot_Mecanum_description)/meshes/Lidar_1.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="black"/>
+        </visual>
+        <collision>
+          <origin xyz="0.002812 -0.000802 -0.096168" rpy="0 0 0"/>
+          <geometry>
+            <mesh filename="file://$(find Robot_Mecanum_description)/meshes/Lidar_1.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+        </collision>
+    </link>
+
+    <joint name="Sztywne 40" type="fixed">
+        <origin xyz="0.092879 0.0 0.037347" rpy="0 0 0"/>
+        <parent link="Dach_1"/>
+        <child link="Lidar_1"/>
+      </joint>
+      
+</robot>
