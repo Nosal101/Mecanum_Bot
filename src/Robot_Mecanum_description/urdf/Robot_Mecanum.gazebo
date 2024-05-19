@@ -6,11 +6,6 @@
 <xacro:property name="black_color" value="Gazebo/Black" />
 <xacro:property name="blue_color" value="Gazebo/Blue" />
 
-
-<gazebo>
-  <plugin name="control" filename="libgazebo_ros_control.so"/>
-</gazebo>
-
 <gazebo reference="base_link">
   <material>${black_color}</material>
   <mu1>0.2</mu1>
@@ -157,6 +152,42 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo>
+  <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">      
+      <!-- Update rate in Hz -->
+      <update_rate>50</update_rate>
+
+      <!-- wheels -->
+      <num_wheel_pairs>2</num_wheel_pairs>
+      <left_joint>Obrot 38</left_joint>
+      <left_joint>Obrot 36</left_joint>
+      <right_joint>Obrot 35</right_joint>
+      <right_joint>Obrot 37</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>0.1305</wheel_separation>
+      <wheel_diameter>0.08</wheel_diameter>
+
+      <!-- limits -->
+      <!-- <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration> -->
+
+      <!-- input -->
+      <!-- <command_topic>cmd_vel</command_topic> -->
+
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+      <odometry_topic>odom</odometry_topic>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>dummy</robot_base_frame>
+
+    </plugin>
+
 </gazebo>
 
 </robot>
